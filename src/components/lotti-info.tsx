@@ -18,7 +18,7 @@ const LottiInfo = () => {
   return (
     <div className="lotti-info">
       {/* <h1 id="number">2.</h1> */}
-      <h1>2. Lotti's Biography</h1>
+      <h1>2. Lotti&apos;s Biography</h1>
       <img src="/assets/sample-pic.png" alt="pic1" />
       <div id="descriptions" ref={containerRef}></div>
     </div>
