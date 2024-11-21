@@ -1,9 +1,7 @@
 import React from 'react'
 import CircularText from './circular-text'
 
-type Props = {}
-
-const Banner = (props: Props) => {
+const Banner = () => {
   return (
     <div className="banner-wrapper">
       <h1 id="number">1.</h1>

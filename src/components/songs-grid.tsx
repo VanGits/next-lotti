@@ -1,9 +1,7 @@
 import MusicPlayer from "@/ui/music-player";
 import React from "react";
 
-type Props = {};
-
-const SongsGrid = (props: Props) => {
+const SongsGrid = () => {
   return (
     <div className="songs-grid">
       <MusicPlayer

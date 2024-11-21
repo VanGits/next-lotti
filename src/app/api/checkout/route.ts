@@ -1,3 +1,4 @@
+import { CartItem } from "@/lib/types";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -6,12 +7,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 export async function POST(request: Request) {
-  const { cartItems } = await request.json();
+  const { cartItems }: {cartItems: CartItem[] } = await request.json();
   // TODO: switch stripe API to LOtti's
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
-      line_items: cartItems.map((item: any) => ({
+      line_items: cartItems.map((item) => ({
         price_data: {
           currency: "usd",
           product_data: {
@@ -32,7 +33,13 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ url: session.url });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    // Ensure the error is an instance of Error before accessing 'message'
+    if (err instanceof Error) {
+      return NextResponse.json({ error: err.message }, { status: 500 });
+    } else {
+      // Handle cases where the error is not an instance of Error (e.g., unknown errors)
+      return NextResponse.json({ error: 'Unknown error occurred' }, { status: 500 });
+    }
   }
 }

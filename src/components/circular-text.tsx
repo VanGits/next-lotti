@@ -1,9 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from "react";
 
-type Props = {};
-
-const CircularText = (props: Props) => {
+const CircularText = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const str = "LOTTI - MUSIC - ROGUE COMING! - ";
 

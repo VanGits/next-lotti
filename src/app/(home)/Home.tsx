@@ -1,22 +1,18 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Banner from "@/components/banner";
-import Extras from "@/components/extras";
 import LottiInfo from "@/components/lotti-info";
 import LottiWho from "@/components/lotti-who";
 import SongsGrid from "@/components/songs-grid";
 import MusicPlayer from "@/ui/music-player";
 import { emojis } from "@/lib/constants";
-import { showNextPage, showPrevPage } from "@/lib/utils";
 import Header from "./Header";
 import Link from "next/link";
 import { Posts, Products, Shows } from "@/lib/types";
-import Show from "@/ui/show";
 import Product from "@/ui/product";
 import { CartProvider } from "../context/CartContext";
 import CartSidebar from "@/components/cart-sidebar";
 import ShowCalendar from "@/components/show-calendar";
-import Image from "next/image";
 import PostItem from "@/components/post-item";
 import MobilePlayer from "@/ui/mobile-player";
 
@@ -96,7 +92,7 @@ export default function HomeClient({
 
     // Cleanup
     return () => clearInterval(interval);
-  }, [emojis]);
+  }, []);
   return (
     <CartProvider>
       <main ref={bodyRef}>

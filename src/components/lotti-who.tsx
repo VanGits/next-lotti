@@ -1,9 +1,7 @@
 import MusicPlayer from '@/ui/music-player'
 import React from 'react'
 
-type Props = {}
-
-const LottiWho = (props: Props) => {
+const LottiWho = () => {
   return (
     <div className="lotti-who">
     <h1>3. Music</h1>

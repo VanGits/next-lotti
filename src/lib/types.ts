@@ -27,7 +27,7 @@ export interface Products {
 }
 
 export interface Posts {
-  _id: any,
+  _id: string,
   title: string,
   body: [],
   image: string,
@@ -43,3 +43,37 @@ export interface CartContextType {
   isCartOpen: boolean;
   setIsCartOpen: (isOpen: boolean) => void;
 }
+
+export interface CartItem {
+  name: string;
+  image: string;
+  price: number;
+  quantity: number;
+
+}
+
+export type Show = {
+  _type: "show";
+  _id: string;
+  _updatedAt: string;
+  title: string;
+  image: string;
+  showDate: string;
+  location: string;
+  createdAt: string;
+};
+
+export type Product = {
+  _type: "product";
+  _id: string;     
+  name: string;
+  image: string;
+  price: number;
+  description: string; 
+};
+
+export type Post = {
+  _type: "post";
+  title: string;
+  mainImage: { asset: { url: string } };
+};

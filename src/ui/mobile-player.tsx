@@ -4,7 +4,6 @@ import {
   Pause, 
   SkipForward, 
   SkipBack, 
-  Heart, 
   Shuffle, 
   Repeat 
 } from 'lucide-react';
@@ -14,10 +13,8 @@ const SpotifyMusicPlayer: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
-
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
   const [isShuffled, setIsShuffled] = useState(false);
   const [isRepeating, setIsRepeating] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -34,16 +31,6 @@ const SpotifyMusicPlayer: React.FC = () => {
     const progress = progressRef.current;
 
     if (!audio || !progressBar || !progress) return;
-
-    const togglePlay = () => {
-      if (audio.paused) {
-        audio.play();
-        setIsPlaying(true);
-      } else {
-        audio.pause();
-        setIsPlaying(false);
-      }
-    };
 
     const updateProgress = () => {
       const percent = (audio.currentTime / audio.duration) * 100;
