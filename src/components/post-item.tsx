@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 type Props = {
   _id: string;
@@ -10,11 +10,23 @@ type Props = {
 };
 
 const PostItem = ({ _id, title, image, date }: Props) => {
-  const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check window size when component mounts
+    setIsMobile(window.innerWidth <= 768);
+  }, []);
+
   return (
     <Link href={`/blog/${_id}`} className="post-item">
       <div className="post-item">
-        <Image src={image} width={500} height={350} alt={title} layout={isMobile ? "responsive" : ""}/>
+        <Image
+          src={image}
+          width={500}
+          height={350}
+          alt={title}
+          layout={isMobile ? "responsive" : ""}
+        />
         <h2>{title}</h2>
         <div className="profile">
           <Image

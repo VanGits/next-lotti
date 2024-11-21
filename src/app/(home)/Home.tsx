@@ -36,9 +36,15 @@ export default function HomeClient({
     pages[currentPageIndex].classList.add("active-next");
   }, [currentPageIndex]);
 
+   // Ensure window is available on client side
+   useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth <= 768);
+    }
+  }, []);
+
   // Falling emoji effect
   useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
     const createFallingEmoji = () => {
       if (!bodyRef.current) return;
 
