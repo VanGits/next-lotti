@@ -31,7 +31,7 @@ export interface Posts {
   title: string,
   body: [],
   image: string,
-  mainImage: any
+  mainImage: string
   publishedAt: string
 
 }

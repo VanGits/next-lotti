@@ -2,9 +2,7 @@
 import { descs } from "@/lib/constants";
 import React, { useEffect, useRef } from "react";
 
-type Props = {};
-
-const LottiInfo = (props: Props) => {
+const LottiInfo = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const container = containerRef.current;

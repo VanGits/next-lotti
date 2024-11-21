@@ -184,12 +184,16 @@ const SpotifyMusicPlayer: React.FC = () => {
           <button 
             className="control-btn play-pause-btn"
             onClick={() => {
-              const audio = audioRef.current;
-              if (audio) {
-                isPlaying ? audio.pause() : audio.play();
-                setIsPlaying(!isPlaying);
-              }
-            }}
+                const audio = audioRef.current;
+                if (audio) {
+                  if (isPlaying) {
+                    audio.pause();
+                  } else {
+                    audio.play();
+                  }
+                  setIsPlaying(!isPlaying);
+                }
+              }}              
           >
             {isPlaying ? <Pause size={40} /> : <Play size={40} />}
           </button>
