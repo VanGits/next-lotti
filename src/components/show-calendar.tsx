@@ -34,7 +34,7 @@ const ShowCalendar = ({ shows }: Props) => {
       {shows.map((show) => (
         <Show key={show._id} id={show._id} title={show.title} location={show.location} date={show.showDate} />
       ))}
-      <Image src="/assets/l3.jpeg" alt="show-calendar-bg" width={400} height={550} />
+      <Image src="/assets/l3.jpeg" alt="show-calendar-bg" width={350} height={550} />
     </div>
   );
 };

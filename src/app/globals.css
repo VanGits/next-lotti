@@ -326,7 +326,8 @@ h1:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 4rem;
+  /* margin-left: 4rem; */
+  margin-left: 2rem;
 }
 #page-1 #banner {
   height: 100%;
@@ -398,7 +399,6 @@ h1:nth-child(2) {
   height: 950px;
   width: 680px;
   position: relative;
-  margin-left: 1rem;
 }
 
 .banner-wrapper #number {
@@ -426,12 +426,13 @@ h1:nth-child(2) {
   margin-top: 1rem;
   width: 350px;
   height: 100%;
+  margin-right: 3rem;
 }
 .show-title {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 400px;
+  width: 340px;
   border-bottom: 1px solid white;
 }
 
