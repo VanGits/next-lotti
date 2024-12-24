@@ -17,7 +17,7 @@ body {
   height: 100vh;
   /* cursor: none; */
 }
-main{
+main {
   overflow: hidden;
 }
 .cursor {
@@ -30,7 +30,6 @@ main{
   transition: transform 0.1s ease;
   z-index: 1000;
 }
-
 
 .Navigation {
   display: flex;
@@ -99,9 +98,9 @@ button:hover + .cursor.pointed {
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
-  transition: 
-    left 1.5s ease, 
-    opacity 1.5s ease, 
+  transition:
+    left 1.5s ease,
+    opacity 1.5s ease,
     visibility 1.5s ease;
 }
 
@@ -110,12 +109,11 @@ button:hover + .cursor.pointed {
   left: 0;
   opacity: 1;
   visibility: visible;
- 
 }
 
 @media (max-width: 768px) {
-  .page{
-    display: none !important; 
+  .page {
+    display: none !important;
   }
   .page.active-next,
   .page.active-prev {
@@ -200,13 +198,16 @@ h1:nth-child(2) {
     spin linear infinite;
 }
 @media (max-width: 768px) {
-  .Navigation{
+  .Navigation {
     position: fixed !important;
   }
-  body{
+  .falling-emoji {
+    display: none;
+  }
+  body {
     overflow: auto;
   }
-  .page{
+  .page {
     overflow-y: auto;
   }
 }
@@ -232,7 +233,7 @@ h1:nth-child(2) {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .album-cover {
@@ -271,7 +272,7 @@ h1:nth-child(2) {
 
 .progress-fill {
   height: 100%;
-  background-color: #1DB954;
+  background-color: #1db954;
   border-radius: 2px;
 }
 
@@ -311,7 +312,7 @@ h1:nth-child(2) {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 .shuffle-btn,
@@ -468,42 +469,43 @@ h1:nth-child(2) {
 }
 
 @media (max-width: 768px) {
-    .lotti-info img{
-      display: none;
-    }
-    .banner-wrapper{
-      height: 100vh;
-      width: 100vw;
-      margin-left: 0;
-    }
-    #page-1{
-      flex-direction: column;
-      height: 100%;
-      margin-left: 0;
-    }
-    .lotti-info{
-      width: 100%;
-      margin-left: 0 !important;
-      padding: 0 2rem;
-      height: 100%;
-      margin-top: 4rem;
-    }
-    .show-title{
-      width: 90%;
-    }
-    .banner-wrapper #number{
-      display: none;
-    }
-    #descriptions{
-      width: 80vw;
-    }
-    .show-calendar{
-     justify-content:unset;
-     margin-top: 6rem;
-    }
-    .show-calendar img{
-      display: none;
-    }
+  .lotti-info img {
+    display: none;
+  }
+  .banner-wrapper {
+    height: 100vh;
+    width: 100vw;
+    margin-left: 0;
+  }
+  #page-1 {
+    flex-direction: column;
+    height: 100%;
+    margin-left: 0;
+  }
+  .lotti-info {
+    width: 100%;
+    margin-left: 0 !important;
+    padding: 0 2rem;
+    height: 100%;
+    margin-top: 4rem;
+  }
+  .show-title {
+    width: 90%;
+  }
+  .banner-wrapper #number {
+    display: none;
+  }
+  #descriptions {
+    width: 80vw;
+  }
+  .show-calendar {
+    justify-content: unset;
+    margin-top: 6rem;
+    margin-right: 0;
+  }
+  .show-calendar img {
+    display: none;
+  }
 }
 
 /* ----------------------------------------------------- PAGE-2  ----------------------------------------------------- */
@@ -718,13 +720,13 @@ h1:nth-child(2) {
   width: 100%;
   height: 100vh;
 }
-#page-3 h1{
+#page-3 h1 {
   align-self: flex-start;
 }
 .products-wrapper {
   width: 100%;
   height: 100%;
-  max-width: 1650px;
+  max-width: 1550px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -779,12 +781,12 @@ h1:nth-child(2) {
   object-fit: cover;
 }
 .product {
-  width: 300px;
+  width: 280px;
   height: 350px;
 }
 .first-product {
-  height: 670px;
-  width: 670px;
+  height: 640px;
+  width: 640px;
 }
 #page-3 #number {
   margin-top: 2rem;
@@ -1089,6 +1091,55 @@ h1:nth-child(2) {
   transform: rotate(90deg);
 }
 
+@media (max-width: 768px) {
+  .products {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6rem;
+  }
+  .products-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, auto);
+  }
+  .first-product {
+    height: 350px;
+    width: 280px;
+  }
+  .products-wrapper {
+    justify-content: unset;
+  }
+  .products-wrapper h1{
+    display: none;
+  }
+  .modal-content{
+    flex-direction: column;
+    background-color: #72a275;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-details-wrapper{
+    margin: 0;
+  }
+  .cart-sidebar{
+    width: 100%;
+  }
+  .shop-desc{
+    display: none;
+  }
+  .modal-content img{
+    margin-top: 1rem;
+  }
+}
+
 /* ----------------------------------------------------- PAGE-4  ----------------------------------------------------- */
 
 #page-4 {
@@ -1102,7 +1153,7 @@ h1:nth-child(2) {
   width: 100vw;
   height: 100vh;
 }
-.blog-post{
+.blog-post {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -1119,13 +1170,13 @@ h1:nth-child(2) {
   place-items: start;
   gap: 2rem;
 }
-.post-item{
+.post-item {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
 }
-.blog-content a{
+.blog-content a {
   font-weight: 400;
   font-size: 34px;
   margin-top: 1rem;
@@ -1135,44 +1186,44 @@ h1:nth-child(2) {
   position: fixed;
   z-index: 999;
 }
-.post-item h2{
+.post-item h2 {
   font-family: var(--font-halant);
   font-weight: 400;
   font-size: 28px;
-  margin-top: .3rem;
+  margin-top: 0.3rem;
   color: white;
 }
-.post-item p{
+.post-item p {
   color: white;
   font-family: var(--font-halant);
 }
-.post-item img{
+.post-item img {
   object-fit: cover;
 }
-.profile{
+.profile {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 3rem;
 }
-.profile img{
+.profile img {
   border-radius: 100%;
 }
-.profile p{
+.profile p {
   font-family: var(--font-halant);
   margin-left: 1rem;
   color: rgb(0, 0, 0);
   font-weight: 400;
   font-size: 16px;
 }
-.blog-content{
+.blog-content {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
   width: 90%;
 }
-.blog-content h1{
+.blog-content h1 {
   margin-bottom: 1rem;
   font-family: var(--font-inter);
   color: black;
@@ -1201,7 +1252,9 @@ h1:nth-child(2) {
   margin-bottom: 1.5rem;
 }
 
-.content h1, .content h2, .content h3 {
+.content h1,
+.content h2,
+.content h3 {
   margin: 2rem 0 1rem;
   color: #1a1a1a;
 }
@@ -1224,7 +1277,8 @@ h1:nth-child(2) {
   color: #4b5563;
 }
 
-.content ul, .content ol {
+.content ul,
+.content ol {
   margin: 1.5rem 0;
   padding-left: 1.5rem;
 }
@@ -1241,16 +1295,15 @@ h1:nth-child(2) {
   margin-top: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  
 }
 .blog-image {
   object-fit: cover;
 }
-.blog-post h2{
+.blog-post h2 {
   font-family: var(--font-halant);
   color: black;
 }
-.post-item .profile p{
+.post-item .profile p {
   color: white;
   font-size: 14px;
 }
@@ -1310,7 +1363,6 @@ h1:nth-child(2) {
   place-content: center;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
- 
 }
 .show-info {
   bottom: 00.2rem;
@@ -1372,22 +1424,21 @@ h1:nth-child(2) {
   font-weight: bold;
 }
 @media (max-width: 768px) {
-  #page-4{
+  #page-4 {
     align-items: center;
     justify-content: center;
     width: 100%;
     margin-left: 0;
-    
   }
-  #page-4 h1{
+  #page-4 h1 {
     margin-top: 8rem;
   }
-  .blogs-grid{
+  .blogs-grid {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
     place-items: center;
   }
-  .post-item{
+  .post-item {
     width: 100%;
     padding: 0 1rem;
   }

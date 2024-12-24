@@ -9,6 +9,7 @@ type Props = Products & {
 
 const Product = ({ _id, name, image, price, description, isFirst }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isMobile = window.innerWidth <= 768
   return (
     <div className={`product ${isFirst ? "first-product" : ""}`}>
       <div className="image-wrapper">
@@ -32,8 +33,8 @@ const Product = ({ _id, name, image, price, description, isFirst }: Props) => {
         <Image
           src={image}
           alt={name}
-          height={isFirst ? 670 : 300}
-          width={isFirst ? 670 : 300}
+          height={isMobile ? 280 : (isFirst ? 640 : 280)} // Adjust height based on mobile
+          width={isMobile ? 280 : (isFirst ? 640 : 280)} // Adjust width based on mobile
         />
       </div>
 
@@ -49,6 +50,7 @@ const Product = ({ _id, name, image, price, description, isFirst }: Props) => {
           price={price}
           description={description}
           setIsModalOpen={setIsModalOpen}
+          isMobile = {isMobile}
         />
       )}
     </div>

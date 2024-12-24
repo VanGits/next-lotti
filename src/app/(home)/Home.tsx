@@ -44,61 +44,61 @@ export default function HomeClient({
   }, []);
 
   // Falling emoji effect
-  useEffect(() => {
-    const createFallingEmoji = () => {
-      if (!bodyRef.current) return;
+  // useEffect(() => {
+  //   const createFallingEmoji = () => {
+  //     if (!bodyRef.current) return;
 
-      // Create emoji element
-      const emoji = document.createElement("div");
-      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      emoji.classList.add("falling-emoji");
+  //     // Create emoji element
+  //     const emoji = document.createElement("div");
+  //     emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  //     emoji.classList.add("falling-emoji");
 
-      // Get precise container width
-      const containerWidth = bodyRef.current.clientWidth;
-      const emojiWidth = 32; // Approximate width of an emoji
+  //     // Get precise container width
+  //     const containerWidth = bodyRef.current.clientWidth;
+  //     const emojiWidth = 32; // Approximate width of an emoji
 
-      // Calculate safe horizontal placement
-      const randomLeft = Math.max(
-        0,
-        Math.min(
-          Math.random() * (containerWidth - emojiWidth),
-          containerWidth - emojiWidth
-        )
-      );
+  //     // Calculate safe horizontal placement
+  //     const randomLeft = Math.max(
+  //       0,
+  //       Math.min(
+  //         Math.random() * (containerWidth - emojiWidth),
+  //         containerWidth - emojiWidth
+  //       )
+  //     );
 
-      // Style the emoji
-      emoji.style.position = "absolute";
-      emoji.style.left = `${randomLeft}px`;
-      emoji.style.top = `0px`;
-      emoji.style.fontSize = "2rem";
-      emoji.style.zIndex = "9999";
-      emoji.style.pointerEvents = "none";
-      emoji.style.willChange = "transform";
+  //     // Style the emoji
+  //     emoji.style.position = "absolute";
+  //     emoji.style.left = `${randomLeft}px`;
+  //     emoji.style.top = `0px`;
+  //     emoji.style.fontSize = "2rem";
+  //     emoji.style.zIndex = "9999";
+  //     emoji.style.pointerEvents = "none";
+  //     emoji.style.willChange = "transform";
 
-      // Append to container
-      bodyRef.current.appendChild(emoji);
+  //     // Append to container
+  //     bodyRef.current.appendChild(emoji);
 
-      // Randomize fall parameters
-      const duration = Math.random() * 5 + 5;
-      const rotation = Math.random() * 360;
+  //     // Randomize fall parameters
+  //     const duration = Math.random() * 5 + 5;
+  //     const rotation = Math.random() * 360;
 
-      // Animate falling
-      emoji.style.transition = `transform ${duration}s linear`;
-      setTimeout(() => {
-        emoji.style.transform = `translateY(${bodyRef?.current?.clientHeight}px) rotate(${rotation}deg)`;
-      }, 600);
+  //     // Animate falling
+  //     emoji.style.transition = `transform ${duration}s linear`;
+  //     setTimeout(() => {
+  //       emoji.style.transform = `translateY(${bodyRef?.current?.clientHeight}px) rotate(${rotation}deg)`;
+  //     }, 600);
 
-      // Remove emoji after animation
-      setTimeout(() => {
-        emoji.remove();
-      }, duration * 1000);
-    };
+  //     // Remove emoji after animation
+  //     setTimeout(() => {
+  //       emoji.remove();
+  //     }, duration * 1000);
+  //   };
 
-    const interval = setInterval(createFallingEmoji, 600);
+  //   const interval = setInterval(createFallingEmoji, 600);
 
-    // Cleanup
-    return () => clearInterval(interval);
-  }, []);
+  //   // Cleanup
+  //   return () => clearInterval(interval);
+  // }, []);
   return (
     <CartProvider>
       <main ref={bodyRef}>

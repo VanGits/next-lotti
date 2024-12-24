@@ -9,6 +9,7 @@ type ProductModalProps = {
   price: number;
   description: string;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isMobile: boolean;
 };
 
 const ProductModal: React.FC<ProductModalProps> = ({
@@ -18,6 +19,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
   price,
   description,
   setIsModalOpen,
+  isMobile
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const { addToCart } = useCart();
@@ -57,7 +59,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
           </svg>
         </button>
         <div className="modal-img-wrapper">
-          <Image src={image} alt={name} width={400} height={400} />
+          <Image src={image} alt={name} width={isMobile ? 300 : 400} height={isMobile ? 300 : 400} />
         </div>
         <div className="modal-details-wrapper">
           <h2>{name}</h2>
